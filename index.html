@@ -56,8 +56,9 @@
   .nav-links a {
     font-size: 13px; font-weight: 500; color: var(--gray);
     text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase;
-    position: relative; padding-bottom: 2px;
     transition: color 0.2s;
+    display:flex ;
+    align-items: center;
   }
   .nav-links a::after {
     content: ''; position: absolute; bottom: 0; left: 0; right: 100%;
@@ -788,7 +789,7 @@
 
   <div class="fade-up" style="transition-delay:0.15s">
     <div class="section-eyebrow">Sobre</div>
-    <h2 class="section-title">Enf.ª Patricia Lemos<br><span class="pink">Referência em Enfermagem</span></h2>
+    <h2 class="section-title">Enf.ª Patricia Lemos<br><span class="pink">Referência no Tratamento de Feridas e Podiatria</span></h2>
     <p class="section-body">
       Com mais de 25 anos dedicados à enfermagem, Patricia Lemos é Mestre em Enfermagem pela Universidade Federal do Piauí (UFPI) e referência em tratamento de feridas e podiatria no Piauí.
     </p>
@@ -1004,7 +1005,7 @@
     <div class="form-field">
       <label class="form-label">Especialidade de interesse</label>
       <select class="form-input" id="form-especialidade">
-        <option value="">Selecione um serviço...</option>
+        <option value=""  hidden >Selecione seu serviço...</option>
         <option>Podiatria</option>
         <option>Estomaterapia</option>
         <option>Laserterapia</option>
@@ -1104,8 +1105,14 @@
     if (especialidade) texto += `\nEspecialidade de interesse: ${especialidade}.`;
     if (mensagem) texto += `\n\nMensagem: ${mensagem}`;
 
-    const url = 'https://wa.me/5586994816975?text=' + encodeURIComponent(texto);
-    window.open(url, '_blank');
+    if (especialidade == "Curativa — Loja"){
+      texto = 'Olá! Vim por indicação da Patrícia e gostaria de tirar algumas dúvidas sobre os produtos.'
+      const url = 'https://wa.me/5586994811667?text=' + encodeURIComponent(texto); 
+      window.open(url, '_blank');
+    } else {
+      const url = 'https://wa.me/5586994816975?text=' + encodeURIComponent(texto);
+      window.open(url, '_blank');
+    }
   }
 
   // Tweaks
@@ -1152,3 +1159,6 @@
 </script>
 </body>
 </html>
+
+
+ 
